@@ -1,0 +1,14 @@
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\bin\Debug\net8.0\Movie.exe
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\bin\Debug\net8.0\Movie.deps.json
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\bin\Debug\net8.0\Movie.runtimeconfig.json
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\bin\Debug\net8.0\Movie.dll
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\bin\Debug\net8.0\Movie.pdb
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.AssemblyInfoInputs.cache
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.AssemblyInfo.cs
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.csproj.CoreCompileInputs.cache
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.dll
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\refint\Movie.dll
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.pdb
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.genruntimeconfig.cache
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\ref\Movie.dll
