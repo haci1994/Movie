@@ -52,7 +52,7 @@
                     Console.WriteLine($"You logged in as {loggedUser.Username} - You are an {loggedUser.Role}.");
 
                     Genres genreList = new Genres();
-                    Movies movieList = new Movies();
+                    Movies movieList = new Movies(genreList);
 
                     if (loggedUser.Role == (Role)0)
                     {
@@ -74,6 +74,15 @@
 
                             switch (command)
                             {
+                                case 1:
+                                    movieList.AddMovie(genreList);
+                                    movieList.PrintMovies();
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Silmek istediyiniz filmin ID-sini daxil edin:");
+                                    int id = int.Parse(Console.ReadLine());
+                                    movieList.RemoveMovie(id);                                    
+                                    break;
                                 case 3:
                                     Console.WriteLine("Janr adini daxil edin!");
                                     string newGenreName = Console.ReadLine();

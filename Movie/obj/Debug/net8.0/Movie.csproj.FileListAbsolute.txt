@@ -12,3 +12,4 @@ C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\refint\Mov
 C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.pdb
 C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.genruntimeconfig.cache
 C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\ref\Movie.dll
+C:\Users\mmzad\Desktop\M.Haji - Homework\Movie\Movie\obj\Debug\net8.0\Movie.sourcelink.json
