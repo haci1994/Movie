@@ -4,6 +4,8 @@
     {
         static void Main(string[] args)
         {
+            Genres genreList = new Genres();
+            Movies movieList = new Movies(genreList);
             Console.WriteLine("Salam, sistemde User yoxdur. \nZehmet olmasa en azi  2 user elave edin! \n(1-ci admin, 2-ci user olacaq, sonraki istifadecilerin rolunu ozunuz sececeksiniz!)\n");
             Users userList = new Users();
             userList.AddUsers();
@@ -34,9 +36,15 @@
             Console.Clear();
             Console.WriteLine("\nIstifadeci siyahiniz:\n");
             userList.PrintUsers();
-            bool cannotLoggedIn = true;
+
 
         login:
+
+            Console.BackgroundColor = default;
+            Console.ForegroundColor = ConsoleColor.White;
+
+            bool cannotLoggedIn = true;
+        
             do
             {
                 Console.WriteLine("\nHesabiniza giris edin:\n\n");
@@ -52,8 +60,7 @@
                     cannotLoggedIn = false;
                     Console.WriteLine($"You logged in as {loggedUser.Username} - You are an {loggedUser.Role}.");
 
-                    Genres genreList = new Genres();
-                    Movies movieList = new Movies(genreList);
+                    
 
                     if (loggedUser.Role == (Role)0)
                     {
@@ -97,6 +104,9 @@
                                     genreList.RemoveGenre(idForDelete);
                                     genreList.PrintGenreList();
                                     break;
+                                case 5:
+                                    movieList.MostView(movieList);
+                                    break;
                                 case 6:
                                     cannotLoggedIn = true;
                                     goto login;
@@ -114,6 +124,9 @@
 
                     else if (loggedUser.Role == (Role)1)
                     {
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
+
                         do
                         {
                             Console.WriteLine("Select command!\n");
@@ -148,8 +161,7 @@
                         } while (true);
 
 
-                        Console.BackgroundColor = ConsoleColor.Black;
-                        Console.ForegroundColor = ConsoleColor.White;
+                        
                     }
                 }
 

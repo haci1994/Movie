@@ -1,4 +1,6 @@
-﻿namespace Movie
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Movie
 {
 
     public class Movie
@@ -33,8 +35,8 @@
 
         public Movies(Genres genres)
         {
-            _movieList[0] = new Movie("Titanic",0,genres);
-            _movieList[1] = new Movie("Mr.Bean",1,genres);
+            _movieList[0] = new Movie("Titanic", 0, genres);
+            _movieList[1] = new Movie("Mr.Bean", 1, genres);
         }
 
         private Movie[] _movieList = new Movie[10];
@@ -54,7 +56,7 @@
             Console.WriteLine("Kino janr ID daxil edin:");
             int genreID = int.Parse(Console.ReadLine());
 
-            Movie newMovie = new Movie(newMovieName,genreID,genres);
+            Movie newMovie = new Movie(newMovieName, genreID, genres);
             if (_size >= _movieList.Length)
             {
                 Movie[] tmp = new Movie[_movieList.Length * 2];
@@ -66,16 +68,16 @@
 
         public void RemoveMovie(int id)
         {
-            for (int i = 0; i<_size; i++)
+            for (int i = 0; i < _size; i++)
             {
                 if (_movieList[i].ID == id)
                 {
                     Console.WriteLine($"{_movieList[i].MovieName} silindi.");
 
-                    for(int j = i; j<_size-1; j++)
+                    for (int j = i; j < _size - 1; j++)
                     {
                         _movieList[j] = _movieList[j + 1];
-                    }                    
+                    }
                 }
             }
 
@@ -91,10 +93,11 @@
             for (int i = 0; i < _size; i++)
             {
                 string genreName;
-                if(_movieList[i].Genre == null)
+                if (_movieList[i].Genre == null)
                 {
                     genreName = "unknown";
-                } else
+                }
+                else
                 {
                     genreName = _movieList[i].Genre.GenreName;
                 }
@@ -107,12 +110,49 @@
 
         public void Watch(int id)
         {
-            for(int i = 0; i< _size; i++)
+            for (int i = 0; i < _size; i++)
             {
                 if (_movieList[i].ID == id)
                 {
                     _movieList[i].WathcMovie();
                 }
+            }
+        }
+
+        public int Size ()
+        {
+            return _size;
+        }
+
+        public void MostView(Movies list)
+        {
+            
+            if(list.Size() > 1)
+            {
+                int maxIndex = 0;
+            for (int i = 1; i < list.Size(); i++)
+            {
+                if (list[i].ViewCount > list[maxIndex].ViewCount)
+                {
+                    maxIndex = i;
+                }                
+            }
+
+                Console.WriteLine($"En cox baxilan film {list[maxIndex].MovieName} - {list[maxIndex].ViewCount} defe izlenmishdir.");
+                return;
+            }
+            
+
+            if (list.Size() == 0)
+            {
+                Console.WriteLine("Siyahida film yoxdur!");
+                return;
+            }
+
+            if (list.Size() == 1)
+            {
+                Console.WriteLine($"Siyahida 1 film var! En cox baxilan film {list[0].MovieName} - {list[0].ViewCount} defe izlenmishdir.");
+                return;
             }
         }
     }
