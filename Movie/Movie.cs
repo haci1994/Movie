@@ -8,7 +8,7 @@
         public int ID { get; }
 
 
-        public int ViewCount { get; }
+        public int ViewCount { get; set; }
 
         private static int _idCounterMovie = 1000;
 
@@ -19,6 +19,11 @@
             ViewCount = 0;
             Genre myGenre = genres[index];
             Genre = myGenre;
+        }
+
+        public void WathcMovie()
+        {
+            ViewCount += 1;
         }
     }
 
@@ -98,6 +103,17 @@
                 Console.WriteLine($"{_movieList[i].ID,-5} {_movieList[i].MovieName,-20} {genreName,-20} {_movieList[i].ViewCount,-5}");
             }
             Console.WriteLine(new string('_', 60));
+        }
+
+        public void Watch(int id)
+        {
+            for(int i = 0; i< _size; i++)
+            {
+                if (_movieList[i].ID == id)
+                {
+                    _movieList[i].WathcMovie();
+                }
+            }
         }
     }
 }

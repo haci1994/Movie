@@ -36,6 +36,7 @@
             userList.PrintUsers();
             bool cannotLoggedIn = true;
 
+        login:
             do
             {
                 Console.WriteLine("\nHesabiniza giris edin:\n\n");
@@ -44,7 +45,7 @@
                 Console.Write("Password: ");
                 string pass = Console.ReadLine();
 
-                User loggedUser = userList.GetUser(name,pass);
+                User loggedUser = userList.GetUser(name, pass);
 
                 if (loggedUser.Username != "undefined")
                 {
@@ -81,7 +82,7 @@
                                 case 2:
                                     Console.WriteLine("Silmek istediyiniz filmin ID-sini daxil edin:");
                                     int id = int.Parse(Console.ReadLine());
-                                    movieList.RemoveMovie(id);                                    
+                                    movieList.RemoveMovie(id);
                                     break;
                                 case 3:
                                     Console.WriteLine("Janr adini daxil edin!");
@@ -96,25 +97,63 @@
                                     genreList.RemoveGenre(idForDelete);
                                     genreList.PrintGenreList();
                                     break;
+                                case 6:
+                                    cannotLoggedIn = true;
+                                    goto login;
+                                    break;
+                                case 7:
+                                    Environment.Exit(0);
+                                    break;
                                 default:
                                     break;
                             }
 
+                        } while (!cannotLoggedIn);
+                    }
+
+
+                    else if (loggedUser.Role == (Role)1)
+                    {
+                        do
+                        {
+                            Console.WriteLine("Select command!\n");
+                            Console.WriteLine("[1] - watch movie");
+                            Console.WriteLine("[2] - filter movie by genre");
+                            Console.WriteLine("[3] - add to watchlist");
+                            Console.WriteLine("[4] - search movie");
+                            Console.WriteLine("[5] - Log Out");
+                            Console.WriteLine("[6] - Exit");
+
+                            int command = int.Parse(Console.ReadLine());
+
+                            switch (command)
+                            {
+                                case 1:
+                                    movieList.PrintMovies();
+                                    Console.WriteLine("Izlemek istediyiniz filmi secin:");
+                                    int id = int.Parse(Console.ReadLine());
+
+                                    movieList.Watch(id);
+                                    break;
+                                case 5:
+                                    cannotLoggedIn = true;
+                                    goto login;
+                                    break;
+                                case 6:
+                                    Environment.Exit(0);
+                                    break;
+                                default:
+                                    break;
+                            }
                         } while (true);
 
 
-
-
-
-
-                    } else if (loggedUser.Role == (Role)1)
-                    {
                         Console.BackgroundColor = ConsoleColor.Black;
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                 }
 
-            } while (cannotLoggedIn);
+            } while (!cannotLoggedIn);
 
 
         }
