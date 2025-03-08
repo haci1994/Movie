@@ -13,6 +13,9 @@
         public string Password { get; }
         public Role Role { get; }
 
+        private Movie[] _watchlist = new Movie[10];
+        private int _size = 0;
 
+        
     }
 }

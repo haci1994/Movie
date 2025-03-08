@@ -127,6 +127,8 @@
                         Console.BackgroundColor = ConsoleColor.Black;
                         Console.ForegroundColor = ConsoleColor.White;
 
+                        Movies watchList = new Movies(genreList,5);
+
                         do
                         {
                             Console.WriteLine("Select command!\n");
@@ -147,6 +149,14 @@
                                     int id = int.Parse(Console.ReadLine());
 
                                     movieList.Watch(id);
+                                    break;
+
+                                case 2:
+                                    movieList.FilterByGenre(movieList, genreList);
+                                    break;
+                                case 3:
+                                    watchList.AddToWatchList(movieList,watchList);
+                                    watchList.PrintWatchlist();
                                     break;
                                 case 5:
                                     cannotLoggedIn = true;

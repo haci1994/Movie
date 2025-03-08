@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 namespace Movie
 {
@@ -32,11 +33,16 @@ namespace Movie
 
     public class Movies
     {
-
+        public static int _watchlistCount = 0;
         public Movies(Genres genres)
         {
             _movieList[0] = new Movie("Titanic", 0, genres);
             _movieList[1] = new Movie("Mr.Bean", 1, genres);
+        }
+
+        public Movies(Genres genres, int a)
+        {
+           
         }
 
         private Movie[] _movieList = new Movie[10];
@@ -154,6 +160,82 @@ namespace Movie
                 Console.WriteLine($"Siyahida 1 film var! En cox baxilan film {list[0].MovieName} - {list[0].ViewCount} defe izlenmishdir.");
                 return;
             }
+        }
+
+        public void FilterByGenre (Movies list, Genres genres)
+        {
+            genres.PrintGenreList();
+            Console.WriteLine("Filterlemek istediyiniz Janrin ID-sini yazin!");
+            int id = int.Parse(Console.ReadLine());
+
+
+            Console.WriteLine(new string('_', 60));
+            Console.WriteLine($"{"ID",-5} {"Name",-20} {"Genre",-20} {"Views",-5}");
+            for (int i = 0; i < list.Size();i++)
+            {
+                if (list[i].Genre == null) continue;
+
+                if (list[i].Genre.ID == id)
+                {
+                    Console.WriteLine(new string('_', 60));
+                    Console.WriteLine($"{list[i].ID,-5} {list[i].MovieName,-20} {list[i].ViewCount,-5}");
+
+                }
+
+                
+            }
+
+            Console.WriteLine(new string('_', 60));
+        }
+
+        public int Length() => _movieList.Length;
+
+        public void AddToWatchList(Movies list, Movies watchList)
+        {
+            
+            Console.WriteLine("Watchliste artirmaq istediyiniz kinonun ID-sini yazin:");
+            int id = int.Parse(Console.ReadLine());
+            Movie movie = null;
+
+            for (int i = 0; i < list.Size(); i++)
+            {
+                if (list[i].ID == id)
+                {
+                    movie = list[i];
+                }
+            }
+
+
+            
+
+            watchList[_watchlistCount++] = movie;
+
+
+            Console.WriteLine("Watchlist:");
+           
+        }
+
+        public void PrintWatchlist()
+        {
+            Console.WriteLine(new string('_', 60));
+            Console.WriteLine($"{"ID",-5} {"Name",-20} {"Genre",-20} {"Views",-5}");
+
+            for (int i = 0; i < _watchlistCount; i++)
+            {
+                string genreName;
+                if (_movieList[i].Genre == null)
+                {
+                    genreName = "unknown";
+                }
+                else
+                {
+                    genreName = _movieList[i].Genre.GenreName;
+                }
+
+                Console.WriteLine(new string('_', 60));
+                Console.WriteLine($"{_movieList[i].ID,-5} {_movieList[i].MovieName,-20} {genreName,-20} {_movieList[i].ViewCount,-5}");
+            }
+            Console.WriteLine(new string('_', 60));
         }
     }
 }
